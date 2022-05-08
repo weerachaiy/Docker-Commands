@@ -2,7 +2,7 @@
 FROM ubuntu:18.04
 
 # You can give your name here
-MAINTAINER abhishekbudruk
+MAINTAINER weerachaiy
 
 # This will give you all the latest updates and required packages to start
 RUN apt-get update \
