@@ -1,10 +1,10 @@
-# Download base image ubuntu 18.04 ( This will download image from DockerHub is there is no image available in local machine)
+# เริ่มจาก FROM นำ image ต้องการ Ubuntu 18.04
 FROM ubuntu:18.04
 
-# You can give your name here
+# กำหนดชื่อคนดูแลไฟล์ ``Dockerfile`` ด้วย MAINTAINER
 MAINTAINER weerachaiy
 
-# This will give you all the latest updates and required packages to start
+# สั่ง RUN update Ubuntu และติดตั้ง tool ที่เราต้องใช้
 RUN apt-get update \
 	&& apt-get install -my wget gnupg \
 	&& apt-get install -y --no-install-recommends \
@@ -17,23 +17,20 @@ RUN apt-get update \
 
 RUN apt-get update
 
-# Installing python and its dependencies
+# ติดตั้ง python ที่เราต้องการ
 RUN apt-get install -y python-pip python-dev build-essential
 
-# Copy the local folder of your app to docker container ( localfolder : flask_webapp  and Folder inside Container : /app)
-# Consider this flask_webapp folder in placed in the same folder as your Dockerfile
-
-# This  /app folder refers to the folder inside your docker container.
+# copy โฟลเดอร์ flask_webapp ของเรา ไปที่ /app ใน container
 COPY flask_webapp/ /app
 
-# Navigate to your app directory
+# กำหนด ที่ตั้งปัจจุบีน ด้วย WORKDIR (เหมือน CD ใน Linux)
 WORKDIR /app
 
-# Install you application dependencies
+# ติดตั้ง tool ต่างๆ ตาม requirements.txt ใน /app
 RUN pip install -r requirements.txt
 
-# This will the command run when you start your container
+# สั่ง python ทำงาน ด้วย ENTRYPOINT
 ENTRYPOINT ["python"]
 
-# Like "python app.py", this will run when you start your container
+# สั่ง app.py ทำงาน ด้วย CMD
 CMD ["app.py"]
