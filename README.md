@@ -170,7 +170,3 @@ Command : sudo docker network disconnect
 Command : sudo docker network ls 
 ```
 
-
-
-## Donation
-*If this page helps you reduce time to develop, you can give a **Star** to this repository [here](https://github.com/abhishekbudruk007/Docker-Commands) .*  
