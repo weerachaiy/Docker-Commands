@@ -6,7 +6,7 @@ docker images
 ```
 #### สั่งลบ image ที่อยู่ในเครื่องเรา
 ```
-Command : docker rmi {image_id} or {image_name} 
+Command : docker rmi {image_id} หรือ {image_name} 
 Example : docker rmi 29a462eea79c
 ```
 
@@ -105,7 +105,7 @@ ENTRYPOINT ["python"]
 CMD ["app.py"]
 ```
 
-#### สร้าง Dockerfile
+#### สร้าง docker image จาก Dockerfile
 ```
 docker build --no-cache -t python .
 ```
