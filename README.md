@@ -92,7 +92,7 @@ RUN apt-get install -y python-pip python-dev build-essential
 # copy โฟลเดอร์ flask_webapp ของเรา ไปที่ /app ใน container
 COPY flask_webapp/ /app
 
-# กำหนด ที่ตั้งของ flask web application ด้วย WORKDIR
+# กำหนด ที่ตั้งปัจจุบีน ด้วย WORKDIR (เหมือน CD ใน Linux)
 WORKDIR /app
 
 # ติดตั้ง tool ต่างๆ ตาม requirements.txt ใน /app
